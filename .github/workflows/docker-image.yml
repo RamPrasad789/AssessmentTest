@@ -23,15 +23,15 @@ jobs:
         id: filter
         with:
             filters: |
-              First App:
-                - 'FirstApp/**'
-              Second App:
-                - 'SecondApp/**'
+              FirstApp:
+                - 'First App/**'
+              SecondApp:
+                - 'Second App/**'
               Modules:
                 - 'Modules/**'
       - name: Build Module
         if: steps.filter.outputs.Modules == 'true'
-        run: echo Build All
+        run: echo all apps module
       
       - name: Build First App
         if: steps.filter.outputs.FirstApp == 'true' && steps.filter.outputs.Modules == 'false'
